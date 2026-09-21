@@ -185,21 +185,25 @@ As tarefas abaixo devem ser executadas na ordem indicada, mantendo cada etapa pe
    - Criar o container de pagina com fundo cinza claro.
    - Aplicar centralizacao e largura maxima `2xl`.
    - Separar visualmente area do historico e area do composer.
+   - [x] Layout principal criado com container responsivo, historico e composer inferior.
 
 5. **Implementar o estado vazio**
    - Exibir a mensagem inicial quando o historico estiver vazio.
    - Garantir que a composicao nao quebre em telas pequenas.
+   - [x] Estado vazio criado em `src/components/EmptyState.tsx`.
 
 6. **Criar a apresentacao das mensagens**
    - Criar componentes para lista, item e bolha de mensagem.
    - Aplicar alinhamento, nome/avatar e variacoes visuais para Usuario e Robo.
    - Preservar quebras de linha do conteudo.
+   - [x] Lista e bolha criadas em `src/components/MessageList.tsx` e `src/components/MessageBubble.tsx`.
 
 7. **Criar o composer**
    - Adicionar textarea com altura ajustavel.
    - Adicionar o toggle de persona no lado esquerdo.
    - Adicionar o botao de envio no lado direito.
    - Implementar estado de foco e borda roxa no modo Robo.
+   - [x] Composer criado em `src/components/ChatComposer.tsx` com toggle, textarea e estados visuais.
 
 ### Fase 3: Interacoes
 

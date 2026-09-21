@@ -1,0 +1,74 @@
+import { useEffect, useRef, useState } from 'react'
+import type { ChatRole } from '../types/chat'
+
+export function ChatComposer() {
+  const [content, setContent] = useState('')
+  const [role, setRole] = useState<ChatRole>('user')
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const isBotMode = role === 'bot'
+  const hasContent = content.trim().length > 0
+
+  useEffect(() => {
+    const textarea = textareaRef.current
+
+    if (!textarea) {
+      return
+    }
+
+    textarea.style.height = 'auto'
+    textarea.style.height = `${Math.min(textarea.scrollHeight, 144)}px`
+  }, [content])
+
+  function toggleRole() {
+    setRole((currentRole) => (currentRole === 'user' ? 'bot' : 'user'))
+  }
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+  }
+
+  function handleKeyDown(event: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault()
+      event.currentTarget.form?.requestSubmit()
+    }
+  }
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className={`rounded-2xl bg-white p-3 shadow-lg shadow-slate-200/60 ring-1 transition-colors ${isBotMode ? 'ring-violet-400' : 'ring-slate-200'}`}
+    >
+      <textarea
+        ref={textareaRef}
+        value={content}
+        onChange={(event) => setContent(event.target.value)}
+        onKeyDown={handleKeyDown}
+        rows={1}
+        placeholder="Digite uma mensagem..."
+        aria-label="Mensagem"
+        className="max-h-36 min-h-12 w-full resize-none bg-transparent px-1 py-2 text-sm leading-6 text-slate-800 outline-none placeholder:text-slate-400"
+      />
+      <div className="mt-2 flex items-center justify-between gap-3">
+        <button
+          type="button"
+          onClick={toggleRole}
+          aria-pressed={isBotMode}
+          aria-label={`Enviar como ${isBotMode ? 'Usuario' : 'Robo'}`}
+          className={`inline-flex min-h-10 items-center gap-2 rounded-xl px-3 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 ${isBotMode ? 'bg-violet-100 text-violet-800' : 'bg-slate-100 text-slate-700'}`}
+        >
+          <span aria-hidden="true">{isBotMode ? '🤖' : '🙂'}</span>
+          <span>{isBotMode ? 'Robo' : 'Usuario'}</span>
+        </button>
+        <button
+          type="submit"
+          disabled={!hasContent}
+          aria-label="Enviar mensagem"
+          className="inline-flex size-10 items-center justify-center rounded-xl bg-violet-600 text-lg text-white transition-colors hover:bg-violet-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400"
+        >
+          <span aria-hidden="true">↑</span>
+        </button>
+      </div>
+    </form>
+  )
+}
