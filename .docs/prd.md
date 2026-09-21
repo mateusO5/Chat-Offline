@@ -166,15 +166,18 @@ As tarefas abaixo devem ser executadas na ordem indicada, mantendo cada etapa pe
 1. **Inspecionar a estrutura atual**
    - Confirmar entrypoint, estilos globais, configuracao do Tailwind e scripts disponiveis.
    - Identificar e preservar os padroes ja existentes no projeto.
+   - [x] Configuracao atual confirmada: Vite, React, TypeScript e Tailwind via plugin.
 
 2. **Definir os tipos do dominio**
    - Criar os tipos de persona, mensagem e status do Robo em `src/types`.
    - Definir a forma minima do historico e dos identificadores.
+   - [x] Tipos criados em `src/types/chat.ts`.
 
 3. **Criar a funcao de respostas locais**
    - Implementar o gerador deterministico em um modulo isolado.
    - Incluir saudacoes, perguntas simples e fallback.
    - Manter a funcao sem chamadas de rede e facil de substituir futuramente.
+   - [x] Gerador criado em `src/services/generateBotResponse.ts`, sem chamadas de rede.
 
 ### Fase 2: Estrutura da interface
 
