@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import type { ChatRole } from '../types/chat'
 
-export function ChatComposer() {
+type ChatComposerProps = {
+  onSend: (content: string, role: ChatRole) => void
+}
+
+export function ChatComposer({ onSend }: ChatComposerProps) {
   const [content, setContent] = useState('')
   const [role, setRole] = useState<ChatRole>('user')
   const textareaRef = useRef<HTMLTextAreaElement>(null)
@@ -25,6 +29,13 @@ export function ChatComposer() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
+
+    if (!hasContent) {
+      return
+    }
+
+    onSend(content.trim(), role)
+    setContent('')
   }
 
   function handleKeyDown(event: React.KeyboardEvent<HTMLTextAreaElement>) {

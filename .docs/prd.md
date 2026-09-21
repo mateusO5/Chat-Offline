@@ -212,16 +212,19 @@ As tarefas abaixo devem ser executadas na ordem indicada, mantendo cada etapa pe
    - Adicionar mensagens ao state.
    - Limpar e redimensionar o textarea depois do envio.
    - Implementar `Enter` para envio e `Shift + Enter` para quebra de linha.
+   - [x] Envio manual conectado ao historico em state, com validacao e limpeza do campo.
 
 9. **Implementar respostas automaticas**
    - Disparar o gerador somente para mensagens enviadas como Usuario.
    - Exibir estado de processamento.
    - Adicionar a resposta do Robo ao historico depois do atraso simulado.
    - Garantir que respostas e mensagens mantenham ordem e identificadores unicos.
+   - [x] Respostas locais implementadas com atraso simulado e contador de respostas pendentes.
 
 10. **Implementar rolagem automatica**
     - Observar novas mensagens e o estado de processamento.
     - Rolar ate o fim sem esconder o ultimo item sob o composer.
+   - [x] Rolagem automatica implementada para novas mensagens e estado de processamento.
 
 ### Fase 4: Qualidade e acabamento
 
