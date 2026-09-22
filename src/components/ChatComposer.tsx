@@ -62,16 +62,34 @@ export function ChatComposer({ onSend }: ChatComposerProps) {
         className="max-h-36 min-h-12 w-full resize-none overflow-y-auto bg-transparent px-1 py-2 text-sm leading-6 text-slate-800 outline-none placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-violet-300"
       />
       <div className="mt-2 flex items-center justify-between gap-3">
-        <button
-          type="button"
-          onClick={toggleRole}
-          aria-pressed={isBotMode}
-          aria-label={`Enviar como ${isBotMode ? 'Usuario' : 'Robo'}`}
-          className={`inline-flex min-h-10 items-center gap-2 rounded-xl px-3 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 ${isBotMode ? 'bg-violet-100 text-violet-800' : 'bg-slate-100 text-slate-700'}`}
-        >
-          <span aria-hidden="true">{isBotMode ? '🤖' : '🙂'}</span>
-          <span>{isBotMode ? 'Robo' : 'Usuario'}</span>
-        </button>
+        <div className="flex flex-col items-start gap-1.5">
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              aria-label="Adicionar anexo"
+              className="inline-flex size-8 items-center justify-center rounded-lg text-base text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
+            >
+              <span aria-hidden="true">📎</span>
+            </button>
+            <button
+              type="button"
+              aria-label="Abrir câmera"
+              className="inline-flex size-8 items-center justify-center rounded-lg text-base text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600"
+            >
+              <span aria-hidden="true">📷</span>
+            </button>
+          </div>
+          <button
+            type="button"
+            onClick={toggleRole}
+            aria-pressed={isBotMode}
+            aria-label={`Enviar como ${isBotMode ? 'Usuario' : 'Robo'}`}
+            className={`inline-flex min-h-8 items-center gap-1.5 rounded-lg px-2.5 text-xs font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 ${isBotMode ? 'bg-violet-100 text-violet-800' : 'bg-slate-100 text-slate-700'}`}
+          >
+            <span aria-hidden="true">{isBotMode ? '🤖' : '🙂'}</span>
+            <span>{isBotMode ? 'Robo' : 'Usuario'}</span>
+          </button>
+        </div>
         <button
           type="submit"
           disabled={!hasContent}
