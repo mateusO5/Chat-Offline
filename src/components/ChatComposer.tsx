@@ -48,6 +48,7 @@ export function ChatComposer({ onSend }: ChatComposerProps) {
   return (
     <form
       onSubmit={handleSubmit}
+      aria-label="Enviar mensagem"
       className={`rounded-2xl bg-white p-3 shadow-lg shadow-slate-200/60 ring-1 transition-colors ${isBotMode ? 'ring-violet-400' : 'ring-slate-200'}`}
     >
       <textarea
@@ -58,7 +59,7 @@ export function ChatComposer({ onSend }: ChatComposerProps) {
         rows={1}
         placeholder="Digite uma mensagem..."
         aria-label="Mensagem"
-        className="max-h-36 min-h-12 w-full resize-none bg-transparent px-1 py-2 text-sm leading-6 text-slate-800 outline-none placeholder:text-slate-400"
+        className="max-h-36 min-h-12 w-full resize-none overflow-y-auto bg-transparent px-1 py-2 text-sm leading-6 text-slate-800 outline-none placeholder:text-slate-400 focus-visible:ring-2 focus-visible:ring-violet-300"
       />
       <div className="mt-2 flex items-center justify-between gap-3">
         <button

@@ -231,15 +231,18 @@ As tarefas abaixo devem ser executadas na ordem indicada, mantendo cada etapa pe
 11. **Ajustar responsividade**
     - Testar desktop, tablet e mobile.
     - Corrigir overflow, espacamentos, alturas e area de toque.
+   - [x] Layout ajustado para viewport dinamico, textos longos, overflow e areas de toque responsivas.
 
 12. **Revisar acessibilidade**
     - Adicionar labels acessiveis e estados `aria` quando necessario.
     - Validar navegacao por teclado, foco visivel e semantica dos botoes.
+   - [x] Labels, regioes semanticas, foco visivel e estados ARIA revisados.
 
 13. **Validar criterios de aceite**
     - Executar lint, build e testes disponiveis.
     - Fazer verificacao manual dos fluxos de envio como Usuario e Robo.
     - Conferir que o reload limpa o historico e que nenhuma requisicao de rede e necessaria.
+   - [x] Lint, build e verificacao dos fluxos principais concluidos.
 
 ## 11. Definicao de pronto
 
